@@ -1,0 +1,555 @@
+@import "tailwindcss";
+
+/* ============================================================
+   MINGDAO Design System - 东方水墨风格
+   ============================================================ */
+
+:root {
+  /* Brand Colors - 东方水墨 */
+  --ink-50: #f7f6f4;
+  --ink-100: #eae8e3;
+  --ink-200: #d4d0c7;
+  --ink-300: #b5afa2;
+  --ink-400: #8c8576;
+  --ink-500: #6b6456;
+  --ink-600: #524c42;
+  --ink-700: #3d3832;
+  --ink-800: #2a2722;
+  --ink-900: #1a1814;
+  --ink-950: #0f0d0b;
+
+  /* Warm Gold - 暖金色 */
+  --gold-50: #faf7ee;
+  --gold-100: #f2ecd4;
+  --gold-200: #e6d9a8;
+  --gold-300: #d6c072;
+  --gold-400: #c9a84a;
+  --gold-500: #b8942f;
+  --gold-600: #a07726;
+  --gold-700: #835a21;
+  --gold-800: #6c4a22;
+  --gold-900: #5c3f22;
+
+  /* Cinnabar Red - 朱砂红 */
+  --cinnabar-50: #fdf3f2;
+  --cinnabar-100: #fce4e1;
+  --cinnabar-200: #facd-c7;
+  --cinnabar-300: #f5a89f;
+  --cinnabar-400: #ed786a;
+  --cinnabar-500: #e04f3d;
+  --cinnabar-600: #cc3624;
+  --cinnabar-700: #ab291a;
+  --cinnabar-800: #8e2619;
+  --cinnabar-900: #76261d;
+
+  /* Jade Green - 玉石青 */
+  --jade-50: #f0f7f4;
+  --jade-100: #dcece4;
+  --jade-200: #bbd9cb;
+  --jade-300: #90bfab;
+  --jade-400: #63a088;
+  --jade-500: #42846d;
+  --jade-600: #316a57;
+  --jade-700: #295647;
+  --jade-800: #24463b;
+  --jade-900: #1f3a32;
+
+  /* Four Symbols - 四象 */
+  --azure-dragon: #2d5a4e;    /* 青龙 - 东方/春 */
+  --vermilion-bird: #b83a2a;   /* 朱雀 - 南方/夏 */
+  --white-tiger: #c4b89a;      /* 白虎 - 西方/秋 */
+  --black-tortoise: #1e2a3a;   /* 玄武 - 北方/冬 */
+
+  /* Paper Colors - 宣纸色 */
+  --paper: #f5f1e8;
+  --paper-dark: #ebe5d5;
+  --paper-warm: #f8f4eb;
+
+  /* Shadows - 水墨阴影 */
+  --shadow-ink-sm: 0 1px 2px rgba(26, 24, 20, 0.06);
+  --shadow-ink: 0 4px 12px rgba(26, 24, 20, 0.08);
+  --shadow-ink-lg: 0 12px 32px rgba(26, 24, 20, 0.12);
+  --shadow-ink-xl: 0 24px 48px rgba(26, 24, 20, 0.16);
+  --shadow-gold: 0 4px 20px rgba(184, 148, 47, 0.15);
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+}
+
+@theme inline {
+  /* Colors */
+  --color-ink-50: var(--ink-50);
+  --color-ink-100: var(--ink-100);
+  --color-ink-200: var(--ink-200);
+  --color-ink-300: var(--ink-300);
+  --color-ink-400: var(--ink-400);
+  --color-ink-500: var(--ink-500);
+  --color-ink-600: var(--ink-600);
+  --color-ink-700: var(--ink-700);
+  --color-ink-800: var(--ink-800);
+  --color-ink-900: var(--ink-900);
+  --color-ink-950: var(--ink-950);
+
+  --color-gold-50: var(--gold-50);
+  --color-gold-100: var(--gold-100);
+  --color-gold-200: var(--gold-200);
+  --color-gold-300: var(--gold-300);
+  --color-gold-400: var(--gold-400);
+  --color-gold-500: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+  --color-gold-700: var(--gold-700);
+  --color-gold-800: var(--gold-800);
+  --color-gold-900: var(--gold-900);
+
+  --color-cinnabar-50: var(--cinnabar-50);
+  --color-cinnabar-100: var(--cinnabar-100);
+  --color-cinnabar-200: var(--cinnabar-200);
+  --color-cinnabar-300: var(--cinnabar-300);
+  --color-cinnabar-400: var(--cinnabar-400);
+  --color-cinnabar-500: var(--cinnabar-500);
+  --color-cinnabar-600: var(--cinnabar-600);
+  --color-cinnabar-700: var(--cinnabar-700);
+  --color-cinnabar-800: var(--cinnabar-800);
+  --color-cinnabar-900: var(--cinnabar-900);
+
+  --color-jade-50: var(--jade-50);
+  --color-jade-100: var(--jade-100);
+  --color-jade-200: var(--jade-200);
+  --color-jade-300: var(--jade-300);
+  --color-jade-400: var(--jade-400);
+  --color-jade-500: var(--jade-500);
+  --color-jade-600: var(--jade-600);
+  --color-jade-700: var(--jade-700);
+  --color-jade-800: var(--jade-800);
+  --color-jade-900: var(--jade-900);
+
+  --color-dragon: var(--azure-dragon);
+  --color-phoenix: var(--vermilion-bird);
+  --color-tiger: var(--white-tiger);
+  --color-tortoise: var(--black-tortoise);
+
+  --color-paper: var(--paper);
+  --color-paper-dark: var(--paper-dark);
+  --color-paper-warm: var(--paper-warm);
+
+  /* Fonts */
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+
+  /* Border Radius */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  /* Box Shadow */
+  --shadow-ink-sm: var(--shadow-ink-sm);
+  --shadow-ink: var(--shadow-ink);
+  --shadow-ink-lg: var(--shadow-ink-lg);
+  --shadow-ink-xl: var(--shadow-ink-xl);
+  --shadow-gold: var(--shadow-gold);
+
+  /* Spacing additions */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-30: 7.5rem;
+}
+
+/* ============================================================
+   Base Styles
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--paper);
+  color: var(--ink-800);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   Typography
+   ============================================================ */
+
+.font-serif {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.heading-display {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.heading-h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.heading-h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.heading-h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   Diagonal Dual Background - 古籍书封风格
+   ============================================================ */
+
+.diagonal-bg {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.diagonal-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--constellation-bg, linear-gradient(135deg, var(--ink-900) 0%, var(--ink-800) 100%));
+  opacity: var(--constellation-opacity, 0.15);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.diagonal-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--symbol-bg, linear-gradient(135deg, var(--gold-200) 0%, var(--gold-100) 100%));
+  opacity: var(--symbol-opacity, 0.12);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Diagonal gradient line - 斜对角渐变过渡带 */
+.diagonal-gradient-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.diagonal-gradient-line::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(184, 148, 47, 0.05) 45%,
+    rgba(184, 148, 47, 0.1) 50%,
+    rgba(184, 148, 47, 0.05) 55%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Content layer sits above backgrounds */
+.diagonal-bg > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   Seasonal Theme Variations - 四季主题
+   ============================================================ */
+
+/* Spring - Azure Dragon 春季青龙 */
+.theme-spring .diagonal-bg::before {
+  background: linear-gradient(135deg, var(--jade-800) 0%, var(--jade-600) 100%);
+}
+.theme-spring .diagonal-bg::after {
+  background: linear-gradient(135deg, var(--jade-200) 0%, var(--jade-100) 100%);
+}
+
+/* Summer - Vermilion Bird 夏季朱雀 */
+.theme-summer .diagonal-bg::before {
+  background: linear-gradient(135deg, var(--cinnabar-800) 0%, var(--cinnabar-600) 100%);
+}
+.theme-summer .diagonal-bg::after {
+  background: linear-gradient(135deg, var(--gold-300) 0%, var(--gold-100) 100%);
+}
+
+/* Autumn - White Tiger 秋季白虎 */
+.theme-autumn .diagonal-bg::before {
+  background: linear-gradient(135deg, var(--ink-600) 0%, var(--ink-400) 100%);
+}
+.theme-autumn .diagonal-bg::after {
+  background: linear-gradient(135deg, var(--paper-dark) 0%, var(--ink-100) 100%);
+}
+
+/* Winter - Black Tortoise 冬季玄武 */
+.theme-winter .diagonal-bg::before {
+  background: linear-gradient(135deg, var(--ink-900) 0%, var(--ink-700) 100%);
+}
+.theme-winter .diagonal-bg::after {
+  background: linear-gradient(135deg, var(--ink-300) 0%, var(--ink-100) 100%);
+}
+
+/* ============================================================
+   Card Styles - 宣纸卡片
+   ============================================================ */
+
+.paper-card {
+  background: rgba(255, 252, 245, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(181, 175, 162, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-ink);
+}
+
+.paper-card-dark {
+  background: rgba(26, 24, 20, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(184, 148, 47, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-ink-xl);
+  color: var(--ink-50);
+}
+
+/* ============================================================
+   Decorative Elements - 装饰元素
+   ============================================================ */
+
+/* Ink wash texture - 水墨纹理 */
+.ink-texture {
+  position: relative;
+}
+
+.ink-texture::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* Gold accent line - 金线装饰 */
+.gold-accent {
+  position: relative;
+}
+
+.gold-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
+  border-radius: 1px;
+}
+
+/* Seal stamp - 印章效果 */
+.seal-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: var(--cinnabar-600);
+  color: white;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  opacity: 0.85;
+  transform: rotate(-3deg);
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   Button Styles - 按钮样式
+   ============================================================ */
+
+.btn-ink {
+  background: var(--ink-900);
+  color: white;
+  border: 1px solid var(--ink-900);
+  transition: all 0.2s ease;
+}
+
+.btn-ink:hover {
+  background: var(--ink-800);
+  box-shadow: var(--shadow-ink-lg);
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-500) 0%, var(--gold-600) 100%);
+  color: white;
+  border: 1px solid var(--gold-500);
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, var(--gold-400) 0%, var(--gold-500) 100%);
+  box-shadow: 0 6px 24px rgba(184, 148, 47, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--ink-800);
+  border: 1px solid var(--ink-300);
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background: var(--ink-50);
+  border-color: var(--ink-400);
+}
+
+/* ============================================================
+   Star Constellation Pattern - 星宿图案
+   ============================================================ */
+
+.constellation-pattern {
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, rgba(184, 148, 47, 0.4), transparent),
+    radial-gradient(1px 1px at 60px 70px, rgba(184, 148, 47, 0.3), transparent),
+    radial-gradient(1px 1px at 100px 40px, rgba(184, 148, 47, 0.5), transparent),
+    radial-gradient(1px 1px at 140px 90px, rgba(184, 148, 47, 0.3), transparent),
+    radial-gradient(1px 1px at 180px 50px, rgba(184, 148, 47, 0.4), transparent),
+    radial-gradient(1px 1px at 40px 120px, rgba(184, 148, 47, 0.3), transparent),
+    radial-gradient(1px 1px at 120px 140px, rgba(184, 148, 47, 0.4), transparent),
+    radial-gradient(2px 2px at 80px 20px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 160px 110px, rgba(255, 255, 255, 0.5), transparent);
+  background-size: 200px 200px;
+}
+
+/* ============================================================
+   Scroll Animations
+   ============================================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ============================================================
+   Responsive Adjustments
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* On mobile, switch to top-bottom split instead of diagonal */
+  .diagonal-bg::before {
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+  
+  .diagonal-bg::after {
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  }
+  
+  .diagonal-gradient-line::before {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(184, 148, 47, 0.03) 42%,
+      rgba(184, 148, 47, 0.08) 50%,
+      rgba(184, 148, 47, 0.03) 58%,
+      transparent 100%
+    );
+  }
+}
+
+/* ============================================================
+   Utility Classes
+   ============================================================ */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.content-auto {
+  content-visibility: auto;
+}
