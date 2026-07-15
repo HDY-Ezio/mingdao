@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ShichenWheel } from '@/components/bazi/shichen-wheel'
 import { DiagonalBackground } from '@/components/layout/diagonal-background'
-import { getDayPillar, getMonthPillar, SHICHEN_TIME_RANGES, solarToLunar, HEAVENLY_STEMS, EARTHLY_BRANCHES, HEAVENLY_STEMS_PINYIN, EARTHLY_BRANCHES_PINYIN } from '@/lib/lunar-calendar'
+import { getYearPillar, getMonthPillar, getDayPillar, getHourPillar, SHICHEN_TIME_RANGES, solarToLunar, HEAVENLY_STEMS, EARTHLY_BRANCHES, HEAVENLY_STEMS_PINYIN, EARTHLY_BRANCHES_PINYIN } from '@/lib/lunar-calendar'
 import { cn } from '@/lib/utils'
 
 export default function BaziPage() {
@@ -27,10 +27,16 @@ export default function BaziPage() {
       const [hours, minutes] = birthTime.split(':').map(Number)
       const date = new Date(year, month - 1, day, hours, minutes)
       
+      const yearPillar = getYearPillar(date)
       const monthPillar = getMonthPillar(date)
       const dayPillar = getDayPillar(date)
+      const hourPillar = getHourPillar(date, dayPillar.stem)
       
       return {
+        yearStem: HEAVENLY_STEMS[yearPillar.stem],
+        yearBranch: EARTHLY_BRANCHES[yearPillar.branch],
+        yearStemPy: HEAVENLY_STEMS_PINYIN[yearPillar.stem],
+        yearBranchPy: EARTHLY_BRANCHES_PINYIN[yearPillar.branch],
         monthStem: HEAVENLY_STEMS[monthPillar.stem],
         monthBranch: EARTHLY_BRANCHES[monthPillar.branch],
         monthStemPy: HEAVENLY_STEMS_PINYIN[monthPillar.stem],
@@ -39,6 +45,10 @@ export default function BaziPage() {
         dayBranch: EARTHLY_BRANCHES[dayPillar.branch],
         dayStemPy: HEAVENLY_STEMS_PINYIN[dayPillar.stem],
         dayBranchPy: EARTHLY_BRANCHES_PINYIN[dayPillar.branch],
+        hourStem: HEAVENLY_STEMS[hourPillar.stem],
+        hourBranch: EARTHLY_BRANCHES[hourPillar.branch],
+        hourStemPy: HEAVENLY_STEMS_PINYIN[hourPillar.stem],
+        hourBranchPy: EARTHLY_BRANCHES_PINYIN[hourPillar.branch],
       }
     } catch {
       return null
@@ -180,48 +190,99 @@ export default function BaziPage() {
                 onChange={(e) => setBirthDate(e.target.value)}
                 className="h-12"
               />
-              {/* 干支显示 */}
+              {/* 干支显示 - 四柱 */}
               {ganzhiDisplay && (
-                <div className="mt-3 flex items-center justify-center gap-4 py-3 bg-paper-warm rounded-lg border border-gold-200/30">
-                  <div className="text-center">
-                    <div className="text-[10px] text-ink-400 uppercase tracking-wider mb-1">Month 月柱</div>
-                    <div className="flex gap-1">
-                      <span
-                        className="text-xl font-semibold text-ink-700"
-                        style={{ fontFamily: 'var(--font-kaishu), serif' }}
-                      >
-                        {ganzhiDisplay.monthStem}
-                      </span>
-                      <span
-                        className="text-xl font-semibold text-ink-700"
-                        style={{ fontFamily: 'var(--font-kaishu), serif' }}
-                      >
-                        {ganzhiDisplay.monthBranch}
-                      </span>
-                    </div>
-                    <div className="text-[10px] text-gold-600">
-                      {ganzhiDisplay.monthStemPy} {ganzhiDisplay.monthBranchPy}
-                    </div>
+                <div className="mt-4 py-4 bg-paper-warm rounded-lg border border-gold-200/30">
+                  <div className="text-center text-xs text-ink-400 uppercase tracking-wider mb-3">
+                    Four Pillars · 四柱
                   </div>
-                  <div className="w-px h-10 bg-ink-200" />
-                  <div className="text-center">
-                    <div className="text-[10px] text-ink-400 uppercase tracking-wider mb-1">Day 日柱</div>
-                    <div className="flex gap-1">
-                      <span
-                        className="text-xl font-semibold text-cinnabar-600"
-                        style={{ fontFamily: 'var(--font-kaishu), serif' }}
-                      >
-                        {ganzhiDisplay.dayStem}
-                      </span>
-                      <span
-                        className="text-xl font-semibold text-cinnabar-600"
-                        style={{ fontFamily: 'var(--font-kaishu), serif' }}
-                      >
-                        {ganzhiDisplay.dayBranch}
-                      </span>
+                  <div className="flex items-center justify-center gap-2 md:gap-4 px-2">
+                    {/* 年柱 */}
+                    <div className="text-center flex-1 max-w-[70px]">
+                      <div className="text-[10px] text-ink-400 uppercase tracking-wider mb-1">Year 年柱</div>
+                      <div className="flex gap-0.5 justify-center">
+                        <span
+                          className="text-lg md:text-xl font-semibold text-ink-700"
+                          style={{ fontFamily: 'var(--font-kaishu), serif' }}
+                        >
+                          {ganzhiDisplay.yearStem}
+                        </span>
+                        <span
+                          className="text-lg md:text-xl font-semibold text-ink-700"
+                          style={{ fontFamily: 'var(--font-kaishu), serif' }}
+                        >
+                          {ganzhiDisplay.yearBranch}
+                        </span>
+                      </div>
+                      <div className="text-[10px] text-gold-600 mt-0.5">
+                        {ganzhiDisplay.yearStemPy}
+                      </div>
                     </div>
-                    <div className="text-[10px] text-gold-600">
-                      {ganzhiDisplay.dayStemPy} {ganzhiDisplay.dayBranchPy}
+                    <div className="w-px h-10 bg-ink-200" />
+                    {/* 月柱 */}
+                    <div className="text-center flex-1 max-w-[70px]">
+                      <div className="text-[10px] text-ink-400 uppercase tracking-wider mb-1">Month 月柱</div>
+                      <div className="flex gap-0.5 justify-center">
+                        <span
+                          className="text-lg md:text-xl font-semibold text-ink-700"
+                          style={{ fontFamily: 'var(--font-kaishu), serif' }}
+                        >
+                          {ganzhiDisplay.monthStem}
+                        </span>
+                        <span
+                          className="text-lg md:text-xl font-semibold text-ink-700"
+                          style={{ fontFamily: 'var(--font-kaishu), serif' }}
+                        >
+                          {ganzhiDisplay.monthBranch}
+                        </span>
+                      </div>
+                      <div className="text-[10px] text-gold-600 mt-0.5">
+                        {ganzhiDisplay.monthStemPy}
+                      </div>
+                    </div>
+                    <div className="w-px h-10 bg-ink-200" />
+                    {/* 日柱 */}
+                    <div className="text-center flex-1 max-w-[70px]">
+                      <div className="text-[10px] text-ink-400 uppercase tracking-wider mb-1">Day 日柱</div>
+                      <div className="flex gap-0.5 justify-center">
+                        <span
+                          className="text-lg md:text-xl font-semibold text-cinnabar-600"
+                          style={{ fontFamily: 'var(--font-kaishu), serif' }}
+                        >
+                          {ganzhiDisplay.dayStem}
+                        </span>
+                        <span
+                          className="text-lg md:text-xl font-semibold text-cinnabar-600"
+                          style={{ fontFamily: 'var(--font-kaishu), serif' }}
+                        >
+                          {ganzhiDisplay.dayBranch}
+                        </span>
+                      </div>
+                      <div className="text-[10px] text-gold-600 mt-0.5">
+                        {ganzhiDisplay.dayStemPy}
+                      </div>
+                    </div>
+                    <div className="w-px h-10 bg-ink-200" />
+                    {/* 时柱 */}
+                    <div className="text-center flex-1 max-w-[70px]">
+                      <div className="text-[10px] text-ink-400 uppercase tracking-wider mb-1">Hour 时柱</div>
+                      <div className="flex gap-0.5 justify-center">
+                        <span
+                          className="text-lg md:text-xl font-semibold text-ink-700"
+                          style={{ fontFamily: 'var(--font-kaishu), serif' }}
+                        >
+                          {ganzhiDisplay.hourStem}
+                        </span>
+                        <span
+                          className="text-lg md:text-xl font-semibold text-ink-700"
+                          style={{ fontFamily: 'var(--font-kaishu), serif' }}
+                        >
+                          {ganzhiDisplay.hourBranch}
+                        </span>
+                      </div>
+                      <div className="text-[10px] text-gold-600 mt-0.5">
+                        {ganzhiDisplay.hourStemPy}
+                      </div>
                     </div>
                   </div>
                 </div>
