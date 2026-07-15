@@ -14,31 +14,31 @@ export function HeroSection() {
         showStars={true}
       >
         {/* Decorative elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-gold-400/5 blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-48 h-48 rounded-full bg-ink-600/5 blur-3xl" />
+        <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-navy-400/10 blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-48 h-48 rounded-full bg-cinnabar-400/10 blur-3xl" />
       </DiagonalBackground>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <div className="max-w-3xl mx-auto text-center">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 mb-8 animate-fade-in">
-            <span className="w-8 h-px bg-gold-500/60" />
-            <span className="eyebrow text-gold-700 tracking-widest">
+            <span className="w-8 h-px bg-navy-400/60" />
+            <span className="eyebrow text-navy-600 tracking-widest">
               Ancient Wisdom • Modern Insight
             </span>
-            <span className="w-8 h-px bg-gold-500/60" />
+            <span className="w-8 h-px bg-navy-400/60" />
           </div>
 
           {/* Main heading */}
-          <h1 className="heading-display text-ink-900 mb-6 text-balance animate-fade-in-up">
+          <h1 className="heading-display text-navy-900 mb-6 text-balance animate-fade-in-up">
             Discover the{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-600 via-gold-500 to-gold-700">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy-600 via-navy-500 to-cinnabar-500">
               Pattern of Your Destiny
             </span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-ink-600 mb-10 max-w-2xl mx-auto leading-relaxed text-balance animate-fade-in-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
+          <p className="text-lg md:text-xl text-navy-700 mb-10 max-w-2xl mx-auto leading-relaxed text-balance animate-fade-in-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
             Three thousand years of Chinese metaphysical wisdom,
             made accessible for your journey of self-discovery.
             Bazi, Purple Star, and I Ching — all in one place.

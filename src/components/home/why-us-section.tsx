@@ -44,8 +44,8 @@ export function WhyUsSection() {
               {/* Center seal */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="seal-stamp mx-auto mb-4 text-2xl">
-                    道
+                  <div className="seal-stamp mx-auto mb-4">
+                    <img src="/mingdao-seal.png" alt="明道印章" className="w-full h-full object-contain" />
                   </div>
                   <p className="font-serif text-2xl text-ink-800 tracking-widest">
                     MINGDAO
