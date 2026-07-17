@@ -297,8 +297,8 @@ export default function BaziPage() {
               
               <div className="grid md:grid-cols-2 gap-6 items-center">
                 {/* 时辰罗盘 */}
-                <div className="flex justify-center">
-                  <div className="w-64 h-64 md:w-72 md:h-72">
+                <div className="flex justify-center pt-2">
+                  <div className="w-52 h-52 md:w-60 md:h-60">
                     <ShichenWheel
                       selectedIndex={shichenIndex}
                       onChange={handleShichenChange}

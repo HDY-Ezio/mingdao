@@ -171,7 +171,7 @@ export function ShichenWheel({ selectedIndex, onChange, className }: ShichenWhee
                   {/* 时辰中文大字 */}
                   <span
                     className={cn(
-                      'font-serif text-2xl font-semibold transition-colors',
+                      'font-serif text-xl md:text-2xl font-semibold transition-colors',
                       isSelected ? 'text-cinnabar-600' : 'text-ink-700'
                     )}
                     style={{ fontFamily: 'var(--font-kaishu), serif' }}
@@ -180,7 +180,7 @@ export function ShichenWheel({ selectedIndex, onChange, className }: ShichenWhee
                   </span>
                   {/* 拼音 */}
                   <span className={cn(
-                    'text-xs mt-0.5',
+                    'text-[10px] mt-0.5',
                     isSelected ? 'text-gold-600 font-medium' : 'text-ink-400'
                   )}>
                     {shichen.pinyin}
@@ -192,14 +192,14 @@ export function ShichenWheel({ selectedIndex, onChange, className }: ShichenWhee
         </div>
 
         {/* 中心显示 */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 md:w-28 md:h-28 rounded-full bg-gradient-to-br from-ink-800 to-ink-900 flex flex-col items-center justify-center shadow-ink-lg border-2 border-gold-500/30">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-ink-800 to-ink-900 flex flex-col items-center justify-center shadow-ink-lg border-2 border-gold-500/30">
           <span
-            className="text-3xl md:text-4xl text-gold-400 font-serif font-semibold"
+            className="text-2xl md:text-3xl text-gold-400 font-serif font-semibold"
             style={{ fontFamily: 'var(--font-kaishu), serif' }}
           >
             {selected.name}
           </span>
-          <span className="text-xs text-gold-300/70 mt-1">
+          <span className="text-[10px] text-gold-300/70 mt-0.5">
             {selected.start} – {selected.end}
           </span>
         </div>
